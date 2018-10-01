@@ -15,6 +15,8 @@ export class CalculaJurosComponent implements AfterViewInit {
 
   public valorFinal: any;
 
+  public mensagemErro: any;
+
   constructor(
     private http: HttpClient,
     @Inject('BASE_URL') private baseUrl: string
@@ -24,6 +26,9 @@ export class CalculaJurosComponent implements AfterViewInit {
 
   CalculaJuros() {
 
+    this.mensagemErro = undefined;
+    this.valorFinal = undefined;
+
     let params = new HttpParams();
 
     params = params.append('valorInicial', String(this.model.valorInicial));
@@ -31,7 +36,11 @@ export class CalculaJurosComponent implements AfterViewInit {
 
     this.http.get(this.baseUrl + 'api/softplayer/calculajuros', { params: params }).subscribe(result => {
       this.valorFinal = result;
-    }, error => console.error(error));
+    }, error => {
+      console.error(error);
+      
+      this.mensagemErro = Object.values(error.error);
+    });
   }
 }
 

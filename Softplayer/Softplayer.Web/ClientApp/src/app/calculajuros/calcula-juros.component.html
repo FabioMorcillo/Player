@@ -24,7 +24,17 @@
   <br />
   <div class="row">
     <div class="alert alert-success">
-      Valor juros composto: {{valorFinal}}
+      Valor juros composto: {{valorFinal | currency}}
+    </div>
+  </div>
+</div>
+
+<div *ngIf="mensagemErro !== undefined">
+  <br />
+  <div class="row">
+    <div class="alert alert-danger">
+      <h4>Erro</h4>
+      <span *ngFor="let erro of mensagemErro">{{erro}}<br /></span> 
     </div>
   </div>
 </div>

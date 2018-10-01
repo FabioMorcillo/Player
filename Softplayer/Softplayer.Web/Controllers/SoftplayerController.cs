@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Softplayer.Application.ApplicationContracts;
 using Softplayer.Application.ViewModels;
+using System.Text;
 
 namespace Softplayer.Web.Controllers
 {
@@ -35,7 +36,7 @@ namespace Softplayer.Web.Controllers
         [HttpGet("showmethecode")]
         public IActionResult ShowMeTheCode()
         {
-            return Ok("link github");
+            return Ok("https://github.com/FabioMorcillo/Player");
         }
     }
 }
