@@ -1,0 +1,30 @@
+<h3>Calcula Juros Compostos</h3>
+
+<br />
+<div class="row">
+  <label>Valor Incial</label><br />
+  <input id="valorInicial" type="text" [(ngModel)]="model.valorInicial" />
+</div>
+
+<br />
+
+<div class="row">
+  <label>Meses</label><br />
+  <input type="number" [(ngModel)]="model.meses" />
+</div>
+
+<br />
+
+<div class="row">
+
+  <button class="btn btn-primary" (click)="CalculaJuros()">Calcular</button>
+</div>
+
+<div *ngIf="valorFinal !== undefined">
+  <br />
+  <div class="row">
+    <div class="alert alert-success">
+      Valor juros composto: {{valorFinal}}
+    </div>
+  </div>
+</div>
